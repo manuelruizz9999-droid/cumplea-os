@@ -205,3 +205,100 @@ body{
   transform: scale(1.05);
   box-shadow: 0 6px 18px rgba(70, 150, 255, 0.55);
 }
+/* 📱 ——— Diseño responsive ——— */
+
+/* TABLET */
+@media (max-width: 1024px) {
+    .stage {
+        width: 100%;
+        height: auto;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .canvas {
+        margin-top: 20px;
+        transform: scale(0.9);
+    }
+
+    .wrapper {
+        height: 600px;
+    }
+
+    .card {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .mensaje {
+        font-size: 1.1rem;
+    }
+}
+
+/* CELULAR */
+@media (max-width: 768px) {
+    body {
+        align-items: flex-start;
+        height: auto;
+        padding: 20px 0;
+        overflow-y: auto;
+    }
+
+    .stage {
+        width: 100%;
+        height: auto;
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .card {
+        width: 95%;
+        padding: 15px;
+    }
+
+    #acomodar1 {
+        font-size: 1.4rem;
+    }
+
+    .mensaje {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .canvas {
+        margin-top: 10px;
+        transform: scale(0.75); /* Ajusta el tamaño del ramo */
+    }
+
+    .wrapper {
+        width: 100%;
+        height: 520px;
+    }
+
+    .regen-btn {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px;
+    }
+}
+
+/* CELULAR PEQUEÑO */
+@media (max-width: 480px) {
+    .canvas {
+        transform: scale(0.65);
+    }
+
+    .wrapper {
+        height: 480px;
+    }
+
+    .mensaje {
+        font-size: 0.95rem;
+    }
+
+    #acomodar1 {
+        font-size: 1.2rem;
+    }
+}
+
