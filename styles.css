@@ -205,56 +205,61 @@ body{
   transform: scale(1.05);
   box-shadow: 0 6px 18px rgba(70, 150, 255, 0.55);
 }
-/* 📱 ——— Diseño responsive ——— */
-
-/* TABLET */
+/* ————————————
+   TABLET (entre 768 y 1024px)
+———————————— */
 @media (max-width: 1024px) {
+    body {
+        height: auto;
+        padding: 20px 0;
+    }
+
     .stage {
+        grid-template-columns: 1fr;
         width: 100%;
         height: auto;
-        grid-template-columns: 1fr;
-        gap: 20px;
         padding: 20px;
+        gap: 30px;
+    }
+
+    .card {
+        width: 85%;
+        margin: 0 auto;
+        padding: 22px;
     }
 
     .canvas {
-        margin-top: 20px;
         transform: scale(0.9);
     }
 
     .wrapper {
         height: 600px;
     }
-
-    .card {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .mensaje {
-        font-size: 1.1rem;
-    }
 }
 
-/* CELULAR */
+/* ————————————
+   CELULAR (≤ 768px)
+———————————— */
 @media (max-width: 768px) {
     body {
-        align-items: flex-start;
         height: auto;
-        padding: 20px 0;
+        padding: 10px 0 40px 0;
         overflow-y: auto;
+        justify-content: flex-start;
     }
 
     .stage {
+        grid-template-columns: 1fr;
         width: 100%;
         height: auto;
-        grid-template-columns: 1fr;
         padding: 10px;
+        gap: 40px;
     }
 
     .card {
-        width: 95%;
-        padding: 15px;
+        width: 92%;
+        padding: 18px;
+        text-align: center;
     }
 
     #acomodar1 {
@@ -263,42 +268,57 @@ body{
 
     .mensaje {
         font-size: 1rem;
-        line-height: 1.5;
+        line-height: 1.6;
     }
 
+    /* Ajuste principal del ramo */
     .canvas {
-        margin-top: 10px;
-        transform: scale(0.75); /* Ajusta el tamaño del ramo */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        transform: scale(0.7);
+        margin-top: -40px;
+        margin-bottom: -20px;
     }
 
     .wrapper {
-        width: 100%;
-        height: 520px;
-    }
-
-    .regen-btn {
-        width: 100%;
-        font-size: 16px;
-        padding: 12px;
-    }
-}
-
-/* CELULAR PEQUEÑO */
-@media (max-width: 480px) {
-    .canvas {
-        transform: scale(0.65);
-    }
-
-    .wrapper {
+        width: 300px;
         height: 480px;
     }
 
-    .mensaje {
-        font-size: 0.95rem;
+    .regen-btn {
+        padding: 12px 15px;
+        width: 100%;
+        font-size: 16px;
     }
+}
+
+/* ————————————
+   CELULAR PEQUEÑO (≤ 480px)
+———————————— */
+@media (max-width: 480px) {
 
     #acomodar1 {
-        font-size: 1.2rem;
+        font-size: 1.25rem;
+    }
+
+    .mensaje {
+        font-size: 0.92rem;
+    }
+
+    .canvas {
+        transform: scale(0.6);
+        margin-top: -60px;
+        margin-bottom: -40px;
+    }
+
+    .wrapper {
+        width: 260px;
+        height: 420px;
+    }
+
+    .card {
+        width: 94%;
     }
 }
 
