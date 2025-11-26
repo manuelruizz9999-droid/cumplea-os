@@ -1,0 +1,207 @@
+:root{
+    --bg1: #0f1724;
+    --bg2: #0b1220;
+    --paper1: #ffe6e9;
+    --paper2: #ffd1e0;
+    --ribbon: #c81d5b;
+}
+*{box-sizing:border-box}
+body{
+    margin:0;
+    font-family:system-ui;
+    background:linear-gradient(160deg,var(--bg1),var(--bg2));
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+    overflow:hidden;
+}
+
+.stage{
+    width:1100px;
+    height:760px;
+    display:grid;
+    grid-template-columns: 1fr 420px;
+    gap:24px;
+    align-items:center;
+}
+
+.card{
+    background:rgba(255,255,255,0.03);
+    padding:20px;
+    border-radius:14px;
+    backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+.mensaje{
+    color:#ffdce6;
+    font-size:1.2rem;
+    text-align:center;
+}
+
+.canvas{
+    position:relative;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    perspective:900px;
+}
+#acomodar1{
+  text-align: center;
+}
+.wrapper{
+    width:420px;
+    height:650px;
+    position:relative;
+    transform-origin:center bottom;
+}
+
+/* Papel */
+.paper{
+    position:absolute;
+    left:50%;
+    bottom:0;
+    transform:translateX(-50%);
+    width:64%;
+    height:86%;
+    background:linear-gradient(180deg,var(--paper1),var(--paper2));
+    clip-path:polygon(50% 2%,100% 40%,80% 100%,20% 100%,0% 40%);
+    border-radius:10px;
+}
+
+/* Ramo */
+.bloom-area{
+    position:absolute;
+    left:50%;
+    bottom:16%;
+    transform:translateX(-50%);
+    width:82%;
+    height:74%;
+}
+
+/* Flor */
+.flower{
+    position:absolute;
+    transform-origin:center bottom;
+}
+
+/* pétalos suavizados */
+.petal{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:110px;
+    height:140px;
+    background:#ff8aa8;
+    border-radius:60% 60% 35% 35%;
+    transform-origin:50% 82%;
+    filter:drop-shadow(0 6px 16px rgba(0,0,0,0.35));
+}
+
+/* Centro */
+.center{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    background:radial-gradient(circle,#ffe8a4,#d48a2c);
+}
+
+/* Tallos */
+.stem{
+    width:8px;
+    background:linear-gradient(180deg,#1c7a3b,#0d5b2b);
+    border-radius:6px;
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:-20px;
+}
+
+/* overrides y decoraciones adicionales */
+.wrapper::after{
+    content:'';
+    position:absolute;
+    left:50%;
+    bottom:6%;
+    width:84%;
+    height:14%;
+    transform:translateX(-50%);
+    background: radial-gradient(ellipse at center, rgba(2,6,23,0.45), rgba(2,6,23,0.08) 45%, transparent 70%);
+    filter: blur(18px);
+    z-index:1;
+    pointer-events:none;
+}
+
+.canvas::before{
+    content:'';
+    position:absolute;
+    left:50%;
+    top:8%;
+    width:120%;
+    height:120%;
+    transform:translateX(-50%);
+    background: radial-gradient(circle at 20% 20%, rgba(255,140,180,0.03), transparent 6%),
+                radial-gradient(circle at 80% 30%, rgba(0,120,255,0.02), transparent 6%),
+                radial-gradient(circle at 50% 70%, rgba(255,255,255,0.02), transparent 8%);
+    pointer-events:none;
+    z-index:0;
+    mix-blend-mode: overlay;
+}
+
+/* ajustar tallos sin editar bloque anterior: */
+.stem{
+    bottom:-10%;
+    transform-origin:50% 0%;
+}
+
+.msg-input{
+    min-width:180px;
+    max-width:320px;
+    padding:8px 10px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.02);
+    color: #fff;
+    outline:none;
+    font-weight:600;
+}
+.msg-input::placeholder{ color: rgba(255,220,230,0.6); }
+.banner{
+    margin:0 0 6px 0;
+    font-size:1.4rem;
+    color:#fff8f3;
+    text-align:center;
+}
+
+.birthday-msg{
+    margin:0 auto 8px auto;
+    font-size:1.02rem;
+    color:#ffe9ef;
+    text-align:center;
+    max-width:360px;
+    line-height:1.45;
+    font-weight:600;
+}
+.regen-btn {
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #4aa8ff, #6fc3ff, #a8e1ff);
+  color: #ffffff;
+  border: none;
+  border-radius: 35px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(70, 150, 255, 0.45);
+  transition: 0.3s;
+}
+
+.regen-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(70, 150, 255, 0.55);
+}

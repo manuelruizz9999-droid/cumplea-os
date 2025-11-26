@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: radial-gradient(circle at 10% 20%, rgba(255,200,220,0.06), transparent 10%),
+                linear-gradient(180deg,#fff7fb,#fff0f4 60%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+}
+
+.card {
+    width: 90%;
+    max-width: 900px;
+    height: 500px;
+    background: #fff;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 18px 60px rgba(6,10,20,0.12), inset 0 1px 0 rgba(255,255,255,0.6);
+    border: 3px solid rgba(255,210,220,0.65);
+    transform: translateY(0);
+    animation: cardPop 720ms cubic-bezier(.2,.9,.25,1) both;
+    z-index: 2;
+}
+
+@keyframes cardPop{
+    0%{ transform: translateY(18px) scale(.995); opacity:0 }
+    60%{ transform: translateY(-6px) scale(1.005); opacity:1 }
+    100%{ transform: translateY(0) scale(1) }
+}
+
+/* DECORACIONES */
+.decor {
+    position: absolute;
+    pointer-events: none;
+}
+
+.decor-left {
+    width: 220px;
+    top: 50px;
+    left: 20px;
+    transform-origin:center;
+    animation: floatLR 5200ms ease-in-out infinite;
+}
+
+.decor-right {
+    width: 220px;
+    top: 50px;
+    right: 20px;
+}
+
+.regalo {
+    width: 260px;
+    bottom: 40px;
+    left: 20px;
+}
+
+.torta {
+    width: 230px;
+    bottom: 40px;
+    right: 20px;
+    animation: floatLR 4800ms ease-in-out infinite;
+}
+
+@keyframes floatLR{
+    0%{ transform: translateY(0) }
+    50%{ transform: translateY(-8px) }
+    100%{ transform: translateY(0) }
+}
+
+/* canvas de fondo para partículas */
+#bgCanvas{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    pointer-events:none;
+    display:block;
+}
+
+/* canvas para fuegos artificiales (encima) */
+#fxCanvas{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:3;
+    pointer-events:none;
+}
+
+/* BOTÓN */
+.btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(90deg,#ff3b6f 0%, #ff5fa2 45%, #c77dff 100%);
+    color: #fff0f5;
+    font-size: 22px;
+    font-weight: 800;
+    border: none;
+    border-radius: 14px;
+    padding: 14px 46px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(255,70,120,0.25), 0 2px 6px rgba(0,0,0,0.06);
+    transition: transform .22s cubic-bezier(.2,.9,.25,1), box-shadow .22s ease, filter .22s ease;
+}
+.btn:active{ transform: translate(-50%, -50%) scale(.96); }
+.btn:hover{ transform: translate(-50%, -50%) translateY(-4px) scale(1.03); filter:brightness(1.06); }
+
+
+/* confetti pieces inside .card */
+.confetti{
+    position:absolute;
+    width:10px;
+    height:16px;
+    opacity:0.95;
+    pointer-events:none;
+    transform-origin:center;
+    will-change: transform, opacity;
+    border-radius:2px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    animation: confettiFall var(--dur, 1800ms) cubic-bezier(.2,.6,.25,1) forwards;
+}
+
+@keyframes confettiFall{
+    0%{ transform: translateY(0) rotate(0) translateX(0); opacity:1 }
+    60%{ opacity:1 }
+    100%{ transform: translateY(360px) rotate(520deg) translateX(var(--dx, 40px)); opacity:0 }
+}
+
+/* small decorative sparkles */
+.sparkle{
+    position:absolute; width:8px; height:8px; border-radius:50%;
+    background:rgba(255,255,255,0.9); filter:blur(.6px); opacity:0.9;
+    animation: sparklePop 1200ms ease-out forwards;
+}
+@keyframes sparklePop{ 0%{ transform:scale(.2); opacity:0 } 60%{ transform:scale(1.1); opacity:1 } 100%{ transform:scale(1); opacity:0 } }
